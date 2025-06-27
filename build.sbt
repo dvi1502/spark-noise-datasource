@@ -16,11 +16,11 @@ lazy val myRealease = Command.command("publish-release") { state =>
 }
 commands ++= Seq(myRealease)
 
-resolvers ++= Seq(
-  Resolver.mavenLocal,
-  Resolver.DefaultMavenRepository,
-  Resolver.sbtPluginRepo("releases"),
-)
+//resolvers ++= Seq(
+//  Resolver.mavenLocal,
+//  Resolver.DefaultMavenRepository,
+//  Resolver.sbtPluginRepo("releases"),
+//)
 
 ThisBuild / scalaVersion := "2.12.10"
 
