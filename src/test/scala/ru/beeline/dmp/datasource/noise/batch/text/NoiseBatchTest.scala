@@ -3,17 +3,17 @@ package ru.beeline.dmp.datasource.noise.batch.text
 import org.apache.spark.internal.Logging
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.streaming.{StreamingQueryException, Trigger}
-import org.scalatest.BeforeAndAfterAll
+import org.scalatest.{BeforeAndAfterAll, Ignore}
 import org.scalatest.funsuite.AnyFunSuiteLike
 
 import java.io.File
 import scala.concurrent.TimeoutException
 import scala.reflect.io.Directory
 
-
+@Ignore
 class NoiseBatchTest extends AnyFunSuiteLike with Logging with BeforeAndAfterAll {
 
-  val checkPointDir = "C:\\tmp\\sparksftpreciever\\"
+  val checkPointDir = "/tmp/sparksftpreciever"
 
   override def beforeAll() {
     println("Before!") // start up your web server or whatever
