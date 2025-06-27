@@ -2,21 +2,14 @@
 
 В библиотеке реализован Spark Datasource api v.2 для имитации потока данных по заданному пользователем шаблону.
 
-## Сборка и публикация проекта в локальном репозитории
+## Как собрать и опубликовать проект в локальном репозитории
 
 ```bash
 sbt clean; sbt  reload; sbt publishLocal
 ```
 
 
-## Подключить библиотеку к проекту
-
-```scala
-libraryDependencies += "ru.beeline.dmp" % "spark-noise-datasource_2.12" % "2.0.11"
-```
-
-
-## Использование библиотеки
+## Как подключить библиотеку к своему проекту
 ```scala
 
 resolvers += ivyLocal
@@ -25,8 +18,10 @@ libraryDependencies += "ru.beeline.dmp" % "spark-noise-datasource_2.12" % "0.0.1
 
 ````
 
-## Режим BATCH 
-возвращает заполненый датафрейм размером **size** и структурой **pattern**
+## Как применить на практике
+### ... в режиме BATCH 
+Возвращает заполненый датафрейм количеством партиций **partNum**, размером партиции **partSize** и структурой **pattern**.
+Пример:
 ```scala
 val df = spark.read
   .format("ru.beeline.dmp.datasource.noise.batch.text")
@@ -37,8 +32,9 @@ val df = spark.read
   .load()
 ```
 
-## Режим STREAM
-возвращает заполненый поток данных, в котором MicroBatch размером **size** и структурой **pattern**
+### ... в режиме STREAM
+Возвращает заполненый поток данных, в котором MicroBatch количеством партиций **partNum**, размером партиции **partSize** и структурой **pattern**.
+Пример:
 ```scala
 val stream = spark.readStream
   .format("ru.beeline.dmp.datasource.noise.stream.text")
@@ -51,8 +47,7 @@ val stream = spark.readStream
 
 
 
-
-## Функции, перечисленные в шаблоне данных:
+## Функции, реализованные в шаблоне **pattern**:
 
 - {NUM(7,2)} - подставляет число, состоящее в формате ЧЧЧЧЧЧЧ.ЧЧ
 - {ENG(25,2)} - подставляет строку, состоящую из символов a-z, где 25 - длина строки, 2 - регистр символов (0-lower, 1-upper, 2-camel)
