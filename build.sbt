@@ -1,4 +1,4 @@
-
+import sbtbuildinfo.BuildInfoKeys._
 
 ThisBuild / version := "0.0.1-SNAPSHOT"
 
@@ -37,6 +37,8 @@ lazy val root = (project in file("."))
     buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
     buildInfoPackage := "ru.beeline.dmp"
   )
+
+
 
 
 val sparkVersion = "3.0.1"
