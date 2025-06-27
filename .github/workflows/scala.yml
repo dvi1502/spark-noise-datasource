@@ -30,9 +30,7 @@ jobs:
         cache: 'sbt'
 
     - name: install sbt as workaround https://github.com/actions/setup-java/issues/627
-      run:
-        sudo apt update
-        sudo apt-get install sbt
+      run:  sudo apt update;  sudo apt-get install sbt
 
     - name: Run tests
       run: sbt test
