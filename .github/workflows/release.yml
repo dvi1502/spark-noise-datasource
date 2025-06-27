@@ -42,7 +42,7 @@ jobs:
           sbt "set test in assembly := {}" clean assembly
           mkdir staging && for FILENAME in $(ls target/*/*.jar); do  NEWFILENAME=$(sed -E "s/-SNAPSHOT.jar/.jar/g" <<< $(basename "$FILENAME")); mv "$FILENAME" staging/"$NEWFILENAME"; done;
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Package
           path: staging
