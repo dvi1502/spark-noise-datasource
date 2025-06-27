@@ -40,7 +40,7 @@ jobs:
         run:
           -|
           sbt "set test in assembly := {}" clean assembly;
-          mkdir staging; 
+          mkdir -p staging; 
           for FILENAME in $(ls target/*/*.jar); 
           do  
             NEWFILENAME=$(sed -E "s/-SNAPSHOT.jar/.jar/g" <<< $(basename "$FILENAME")); 
