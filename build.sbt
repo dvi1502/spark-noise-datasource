@@ -1,4 +1,3 @@
-import sbtbuildinfo.BuildInfoKeys._
 
 ThisBuild / version := "0.0.1-SNAPSHOT"
 
